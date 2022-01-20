@@ -1,0 +1,79 @@
+/* 下面的优先级 > 上面的优先级  */
+
+/* 权重：!important属性 > 行内选择器 > 内部选择器 > id选择器 > class选择器 > 元素选择器 */
+
+/* 元素选择器 */
+/* 指定所有的同类元素 */
+
+h1{
+    color:aqua;
+}
+h2{
+    color: blanchedalmond;
+}
+h3{
+    color: rgb(105, 105, 105);
+}
+
+/* 类选择器/class选择器 */ 
+/* 同class名的所有元素使用 */
+
+.ibm{
+    color: cornflowerblue;
+}
+
+.fg{
+    background-color: darkgray;
+}
+
+/* id选择器 */
+/* id只给唯一一个元素使用 */
+
+#box1{
+    color: deeppink;
+}
+
+/* 通配符/通配选择器 */
+*{
+    /* 外边距 */
+    margin: 0;
+    /* 内边距  */
+    padding: 0;
+}
+
+/* 群组选择器 */
+
+h5,.div1{
+    color: green;
+}
+
+/* 后代选择器 */
+/* 意思是div的字标签p 程序选择的时候 是从右往左的  先找到p 再找到有div的 */
+div p{
+    color: hotpink;
+}
+
+/* 伪类选择器 */
+/* 
+    语法：
+        a:link{属性：属性值}超链接的初始状态
+        a:visited{属性：属性值}超链接被访问之后的状态
+        a:hover{属性：属性值}鼠标悬停，鼠标划过时的超连接状态
+        a:active{属性：属性值}超链接被激活时的状态，即鼠标按下时的超链接状态
+    说明：
+        a）当这4个超链接伪类选择符联合使用时，应注意他们的顺序，正常顺序伪：
+        :link,:visited,:hover,:active,如果顺序错误会使样式失效
+        b)为了简化，一般会把他们放到a选择符当中去 
+*/
+a:link{
+    color: yellow;
+}
+a:visited{
+    color: red;
+}
+a:hover{
+    color: green;
+}
+a:active{
+    color: blue;
+}
