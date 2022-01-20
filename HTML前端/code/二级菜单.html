@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;        
+            padding: 0;
+        }
+        .ul1{
+            width: 300px;
+            margin: 0 auto;
+        }
+        ul{
+            list-style: none;
+        }
+       .li1{
+           width: 148px;
+           text-align: center;
+           /* height:40px; */
+           /* margin: 5px; */
+           border: 1px solid red;
+           font-size: 30px;
+           background-color: turquoise;
+            /* display: inline; */
+            float: left;
+        }
+        .li1:hover li{
+            display: block;
+        }
+
+        .li1 li{
+            display: none;
+            font-size: 25px;
+            background-color:ivory;
+            color: rgb(20, 20, 20);
+        }
+        .li1 li:hover{
+            color: rgb(1, 202, 252);
+        }
+    </style>
+</head>
+<body>
+    <ul class="ul1">
+        <li class="li1">选择
+            <ul>
+                <li>全选</li>
+                <li>复制</li>
+                <li>粘贴</li>
+            </ul>
+        </li>
+        <li class="li1">查看
+            <ul>
+                <li>外观</li>
+                <li>问题</li>
+                <li>输出</li>
+            </ul>
+        </li>
+    </ul>    
+</body>
+</html>
