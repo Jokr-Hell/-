@@ -1,9 +1,12 @@
-package com.mitu.Hello;
+package mystudy;
 
 import java.lang.Math;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author jokr_
+ */
 public class TheSolutionOfEquation {
 
 //  通过a,b,c  计算函数结果

@@ -1,10 +1,15 @@
-package com.mitu.Hello;
+package mystudy;
 
 
 import java.util.Scanner;
 
+//
+// java 基本 语法   数据类型  输入输出等等
+//
 
-
+/**
+ * @author mitu-x
+ */
 public class HelloWorld {
     public static void  main(String[] args) {
 
@@ -19,26 +24,37 @@ public class HelloWorld {
         /* *************************************** */
 //      整型
         int i2 = -2147483648;
-        int i3 = 2_000_000_000; // 加下划线更容易识别
-        int i4 = 0xff0000; // 十六进制表示的16711680
-        int i5 = 0b1000000000; // 二进制表示的512
-        long l = 9000000000000000000L; // long型的结尾需要加L
+        int i3 = 2_000_000_000;
+        // 加下划线更容易识别
+        int i4 = 0xff0000;
+        // 十六进制表示的16711680
+        int i5 = 0b1000000000;
+        // 二进制表示的512
+        long l = 9000000000000000000L;
+        // long型的结尾需要加L
 
 //        浮点型
-        float f1 = 1.09f;//浮点型以f结尾
-        double f2 = 1.20202;//无要求，精度更高
+        float f1 = 1.09f;
+        //浮点型以f结尾
+        double f2 = 1.20202;
+        //无要求，精度更高
 
 //        字符型
         char ch1 = 'A';
-        char ch2 = '中';//字符型用单引号''
+        char ch2 = '中';
+        //字符型用单引号''
+
 //        字符串型
-        String str1 = "Hello World!";//字符串型  用双引号""
+        String str1 = "Hello World!";
+        //字符串型  用双引号""
 
 //        常量
-        final double PI = 3.14;//定义变量时  加上final 就成了常量
+        final double PI = 3.14;
+        //定义变量时  加上final 就成了常量
 
 //        var 关键字
-        StringBuilder sbr1 = new StringBuilder(); // 用以省略变量类型 上下等效
+        StringBuilder sbr1 = new StringBuilder();
+        // 用以省略变量类型 上下等效
         var sbr2 = new StringBuilder();
 
 
@@ -137,13 +153,18 @@ public class HelloWorld {
         /*                  输入                    */
         /*                                         */
         /* *************************************** */
-
-        Scanner scanner = new Scanner(System.in);//创建一个scanner输入类
-        System.out.println("Please input your name :");//提示输入name
-        String YourName = scanner.nextLine();//获取一行输入内容 and make it String
-        System.out.println("Please input your age :");//提示输入age
-        int YourAge = scanner.nextInt();//获取一行输入内容 and  make it Int
-        System.out.printf("Hi, %s, you are %d !\n", YourName, YourAge); // 格式化输出
+        //创建一个scanner输入类
+        Scanner scanner = new Scanner(System.in);
+        //提示输入name
+        System.out.println("Please input your name :");
+        //获取一行输入内容 and make it String
+        String YourName = scanner.nextLine();
+        //提示输入age
+        System.out.println("Please input your age :");
+        //获取一行输入内容 and  make it Int
+        int YourAge = scanner.nextInt();
+        // 格式化输出
+        System.out.printf("Hi, %s, you are %d !\n", YourName, YourAge);
 
 
         /* *************************************** */
