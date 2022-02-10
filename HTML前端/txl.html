@@ -10,6 +10,9 @@
             margin: 0;
             padding: 0;
         }
+        ul li{
+            list-style: none;
+        }
         .con{
             background-color: aquamarine;
             width: 1000px;
@@ -25,54 +28,110 @@
         }
         .right-view{
             float: left;
-            background-color: rgb(75, 51, 51);
-        }
-        .select-down{
-            margin-left: 10px;
-            float: left;
-            width: 0; 
-            height: 0;
-            border-width: 10px;
-            border-style: solid;
-            border-color:#1dafe9 transparent transparent transparent;
-
+            height:600px;
+            width: 600px;
+            background-color: #fff;
         }
         .triangle-down {
+            margin: 5px;
             width: 0;
             height: 0;
             border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
+            border-right:5px solid transparent;
             border-top: 10px solid rgb(19, 117, 197);
+            position: relative;
+            top:18px;
         }
         .triangle-right {
+            display: inline-block;
+            margin:5px;
             width: 0;
             height: 0;
             border-top: 5px solid transparent;
             border-left: 10px solid rgb(19, 117, 197);
             border-bottom: 5px solid transparent;
+            position: relative;
+            top:5px;
+            
+        }
+        .ones{
+            margin: 5px;
+            /* height: 30px;
+            line-height: 30px; */
+            width: 240px;
+            background: rgb(189, 186, 186);
+        }
+        .far{
+            display: none;
+
         }
     </style>
 </head>
 <body>
-    
     <div class="con">
         <!--左边 导航 -->
-        <div class="left-nav">
-            <div><div class="triangle-down"></div>市局</div>
-            <div>局领导</div>
-            <div>办公室</div>
-            <div>人事处</div>
-            <div>教育处</div>
-            <div>纪检组</div>
-            <div>收入规划核算处</div>
-            <div>区县局</div>
+        <ul class="left-nav">
+            <li class="ones">
+                <label>
+                <span  class=" triangle-right"></span>市局
+                </label>  
+                <ul class="far">
+                    <li  class="ones">
+                        <label>
+                            <span class="triangle-right"></span>
+                            <a href="">局领导</a>     
+                         </label>
+                    </li>
+                    <li  class="ones"> 
+                        <span  class="triangle-right"></span> 办公室
+                    </li  class="ones">
+                    <li  class="ones">
+                         <span  class="triangle-right"></span> 人事处
+                        </li>
+                    <li  class="ones">
+                         <span  class="triangle-right"></span> 纪检处
+                        </li>
+                    <li  class="ones">
+                         <span  class="triangle-right"></span> 收入规划核算处
+                        </li>
+                </ul>
+            </li>
+            <li class="ones" >
+                
+                <label><span  class="triangle-right"></span>  区县局</label>
+                <ul class="far">
+                    <li> <span  class="triangle-right"></span> 石柱局</li>
+                </ul>
+            </li>
             
-            
-        </div>
+        </ul>
         <!-- 右边 展示 -->
         <div class="right-view">
             111
         </div>
     </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $('.ones>label').click(function(){
+            if($(this).children('span').hasClass('triangle-right')){
+                //收起状态-> 展开
+                console.log($(this).children('li'))
+                $(this).children('span').addClass("triangle-down")
+                $(this).children('span').removeClass('triangle-right')
+                $(this).next().stop().slideDown()
+
+            }
+            else{
+                //展开状态 -> 收起
+                $(this).children('span').addClass("triangle-right")
+                $(this).children('span').removeClass('triangle-down')
+                $(this).next().stop().slideUp()
+            }
+
+        })
+
+
+    </script>
 </body>
 </html>
