@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author mitu-x
  */
 public class HelloWorld {
-    public static void  main(String[] args) {
+    public static void main(String[] args) {
 
 
         /*        编程第一步，Hello World！           */
@@ -43,7 +43,7 @@ public class HelloWorld {
         char ch1 = 'A';
         char ch2 = '中';
         //字符型用单引号''
-
+        
 //        字符串型
         String str1 = "Hello World!";
         //字符串型  用双引号""

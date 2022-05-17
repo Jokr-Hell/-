@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <button>11111111111111111111111111111111</button>
+    </div>
+
+
+
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $('button').click(function(){
+            sendD();
+        });
+
+
+        function sendD(){
+            kv();
+            $.ajax({
+                url:'http://127.0.0.1:5500/b/a/f/d',
+                type:'post',
+                data:jsObj,
+                success:function(res){
+                    console.log('ok')
+                }
+
+
+
+            });
+        }
+
+
+        function kv(){
+            var jsObj = {};
+            jsObj.testArray = '12412';
+            jsObj.name = 'CSS3';
+            jsObj.date = '8 May, 2011';
+         }      
+
+        function test1(){
+            kv()
+            var str = JSON.stringify(jsObj);
+            alert(str);
+            console.log(str)
+        }
+
+
+        function test2(){
+            kv()
+            var str = JSON.stringify(jsObj);
+            var str1 = JSON.parse(str);
+            alert(str1);
+            console.log(str1);
+        }
+        
+
+    </script>
+</body>
+</html>

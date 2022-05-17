@@ -1,109 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        ul li{
+
+        ul li {
             list-style: none;
         }
-        .con{
+
+        .con {
             background-color: aquamarine;
             width: 1000px;
             height: 900px;
             margin: 0 auto;
             padding: 20px 10px;
         }
-        .left-nav{
+
+        .left-nav {
             width: 25%;
             float: left;
             background-color: rgb(197, 62, 62);
             border: 1px gray dashed;
         }
-        .right-view{
+
+        .right-view {
             float: left;
-            height:600px;
+            height: 600px;
             width: 600px;
             background-color: #fff;
         }
+
         .triangle-down {
             margin: 5px;
             width: 0;
             height: 0;
             border-left: 5px solid transparent;
-            border-right:5px solid transparent;
+            border-right: 5px solid transparent;
             border-top: 10px solid rgb(19, 117, 197);
             position: relative;
-            top:18px;
+            top: 18px;
         }
+
         .triangle-right {
             display: inline-block;
-            margin:5px;
+            margin: 5px;
             width: 0;
             height: 0;
             border-top: 5px solid transparent;
             border-left: 10px solid rgb(19, 117, 197);
             border-bottom: 5px solid transparent;
             position: relative;
-            top:5px;
-            
+            top: 5px;
+
         }
-        .ones{
+
+        .ones {
             margin: 5px;
             /* height: 30px;
             line-height: 30px; */
             width: 240px;
             background: rgb(189, 186, 186);
         }
-        .far{
+
+        .far {
             display: none;
 
         }
     </style>
 </head>
+
 <body>
     <div class="con">
         <!--左边 导航 -->
         <ul class="left-nav">
             <li class="ones">
                 <label>
-                <span  class=" triangle-right"></span>市局
-                </label>  
+                    <span class=" triangle-right"></span>市局
+                </label>
                 <ul class="far">
-                    <li  class="ones">
+                    <li class="ones">
                         <label>
                             <span class="triangle-right"></span>
-                            <a href="">局领导</a>     
-                         </label>
+                            <a href="">局领导</a>
+                        </label>
                     </li>
-                    <li  class="ones"> 
-                        <span  class="triangle-right"></span> 办公室
-                    </li  class="ones">
-                    <li  class="ones">
-                         <span  class="triangle-right"></span> 人事处
-                        </li>
-                    <li  class="ones">
-                         <span  class="triangle-right"></span> 纪检处
-                        </li>
-                    <li  class="ones">
-                         <span  class="triangle-right"></span> 收入规划核算处
-                        </li>
+                    <li class="ones">
+                        <span class="triangle-right"></span> 办公室
+                    </li class="ones">
+                    <li class="ones">
+                        <span class="triangle-right"></span> 人事处
+                    </li>
+                    <li class="ones">
+                        <span class="triangle-right"></span> 纪检处
+                    </li>
+                    <li class="ones">
+                        <span class="triangle-right"></span> 收入规划核算处
+                    </li>
                 </ul>
             </li>
-            <li class="ones" >
-                
-                <label><span  class="triangle-right"></span>  区县局</label>
+            <li class="ones">
+
+                <label><span class="triangle-right"></span> 区县局</label>
                 <ul class="far">
-                    <li> <span  class="triangle-right"></span> 石柱局</li>
+                    <li> <span class="triangle-right"></span> 石柱局</li>
                 </ul>
             </li>
-            
+
         </ul>
         <!-- 右边 展示 -->
         <div class="right-view">
@@ -113,8 +123,8 @@
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script>
 
-        $('.ones>label').click(function(){
-            if($(this).children('span').hasClass('triangle-right')){
+        $('.ones>label').click(function () {
+            if ($(this).children('span').hasClass('triangle-right')) {
                 //收起状态-> 展开
                 console.log($(this).children('li'))
                 $(this).children('span').addClass("triangle-down")
@@ -122,7 +132,7 @@
                 $(this).next().stop().slideDown()
 
             }
-            else{
+            else {
                 //展开状态 -> 收起
                 $(this).children('span').addClass("triangle-right")
                 $(this).children('span').removeClass('triangle-down')
@@ -134,4 +144,5 @@
 
     </script>
 </body>
+
 </html>

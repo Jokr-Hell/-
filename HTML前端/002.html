@@ -40,14 +40,22 @@
 </head>
 
 <body>
-    <div id="123" onclick="javascript:open111(this)">
+<button>123</button>
+    <div id="123" >123123123131313
+	
     </div>
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script>
-        function open111(res){
-            console.log(res)
-           $(res).html("11111")
-        }
+		$('button').click(function(){
+		alert('123')
+		
+			window.location.href="about:blank";
+  window.close();
+
+		})
+		
+		
+		
     </script>
 </body>
 </html>

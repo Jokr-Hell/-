@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>CatPhotoApp</h2>
+    <main>
+        <p>Click here to view more <a href="#">cat photos</a>.</p>
+
+        <a href="#"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                alt="A cute orange cat lying on its back."></a>
+
+        <p>Things cats love:</p>
+        <ul>
+            <li>cat nip</li>
+            <li>laser pointers</li>
+            <li>lasagna</li>
+        </ul>
+        <p>Top 3 things cats hate:</p>
+        <ol>
+            <li>water</li>
+            <li>dog</li>
+            <li>bear</li>
+        </ol>
+        <label for="indoor">
+            <input id="indoor" name="indoor-outdoor" type="radio">
+        </label>
+        <label for="outdoor">
+            <input id="outdoor" name="indoor-outdoor" type="radio">
+        </label>
+        <div>
+            <label for=""><input type="checkbox" name="personality"></label>
+            <label for=""><input type="checkbox" name="personality"></label>
+            <label for=""><input type="checkbox" name="personality"></label>
+        </div>
+    </main>
+</body>
+<script>
+
+    let params = JSON.stringify(exportData);
+    let config = {
+        responseType: "blob",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
+    axios.post("/stockQuery/stockDownload", params, config).then((res) => {
+        const blob = new Blob([res.data]);
+        const fileName = "库存列表.xls";
+        const linkNode = document.createElement("a");
+        linkNode.download = fileName; //a标签的download属性规定下载文件的名称
+        linkNode.style.display = "none";
+        linkNode.href = URL.createObjectURL(blob); //生成一个Blob URL
+        document.body.appendChild(linkNode);
+        linkNode.click(); //模拟在按钮上的一次鼠标单击
+        URL.revokeObjectURL(linkNode.href); // 释放URL 对象
+        document.body.removeChild(linkNode);
+    });
+
+
+
+
+
+
+
+
+    $.ajax({
+        type: 'POST',
+        url: '/ba/baRecord/exportExcel',
+        dataType: 'binary',
+        responseType: 'blob',
+        //contentType: "application/json",
+        processData: false,
+        data: JSON.stringify(exportData),
+        success:function(res){
+            console.log("OK");
+            let blob = new Blob([res.data]);
+            const URL = URL.createObjectURL(blob);
+            const fileName = 'data.xls';  // 文件名+后缀
+            const listNode = document.createElement("a");
+            listNode.download = fileName;
+            listNode.style.display = "none";
+            listNode.href = URL; // 文件流生成的url
+            document.body.appendChild(listNode);
+            listNode.click() ; // 模拟在按钮上实现一次鼠标点击
+            URL.revokeObjectURL(listNode.href) ; // 释放 URL 对象
+            document.body.removeChild(listNode);  // 移除 a 标签    
+        },
+        complete: function (XMLHttpRequest,status) {
+            console.log(XMLHttpRequest,status)
+        }
+    });
+
+
+
+      
+    $.ajax({
+        type: "POST",
+        url: '/ba/baRecord/exportExcel',
+        data: JSON.stringify(exportData),
+        dataType: 'binary',
+        xhrFields: { responseType: "blob" },
+        contentType: "application/json",
+        success: function (res) {
+            // res 为二进制流
+            console.log("成功", res)
+            let blob = new Blob([res])
+            let da = document.createElement('a')
+            da.href = URL.createObjectURL(blob);
+            da.setAttribute("download", "data.xls");
+            da.click();
+            URL.revokeObjectURL(da.href);
+        },
+        complete: function (XMLHttpRequest, status) {
+            console.log(XMLHttpRequest, status)
+        }
+    });
+
+
+
+    let exportData = "wtrqcjf="+ wtrqcjf+
+            "swsqcyf"+ swsqcyf +
+            "&sfxmlx=" + sfxmlx +
+            "&babh=" + babh +
+            "&status="  + status +
+            "&revokeStatus=" + sqcz +
+            "&createDate=" + serchCreateDateBegin +
+            "&endDate=" + serchCreateDateEnd;
+
+
+
+
+
+    let exportData = {
+            wtrqcjf: wtrqcjf,
+            swsqcyf: swsqcyf,
+            sfxmlx: sfxmlx,
+            babh: babh,
+            status: status,
+            revokeStatus: sqcz,
+            createDate: serchCreateDateBegin,
+            endDate: serchCreateDateEnd
+        };
+
+
+
+
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('post','/ba/baRecord/exportExcel',true);
+        // xhr.setRequestHeader("contentType",' application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.responseType = 'blob';
+        params = jQuery.param(params, traditional )
+        params = JSON.parse(params);
+        xhr.send(params);
+
+        xhr.onload  = function (){
+            if(this.status === 200){
+                console.log(this.response)
+                let blob = new Blob([this.response])
+                let da = document.createElement('a')
+                da.href = URL.createObjectURL(blob);
+                da.setAttribute("download", "data.xls");
+                da.click();
+                URL.revokeObjectURL(da.href);
+            }else{
+                const tempBlob = new Blob([xhr.response], {type: 'application/json'});
+                // 通过 FileReader 读取这个 blob
+                const reader = new FileReader();
+                reader.readAsText(tempBlob);
+                reader.onload = e => {
+                    const res = e.target.result;
+                    const data = JSON.parse(res);
+                    alert(data["message"]);
+                };
+            }
+        }
+
+
+
+
+
+        exportData = jQuery.param(exportData);
+
+        console.log(exportData);
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('post','/ba/baRecord/exportExcel',true);
+        // xhr.setRequestHeader("contentType",' application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.responseType = 'blob';
+
+        xhr.send(exportData);
+
+        xhr.onload  = function (){
+            if(this.status === 200){
+                console.log(this.response)
+                let blob = new Blob([this.response])
+                let da = document.createElement('a')
+                da.href = URL.createObjectURL(blob);
+                da.setAttribute("download", "data.xls");
+                da.click();
+                URL.revokeObjectURL(da.href);
+            }else{
+                const tempBlob = new Blob([xhr.response], {type: 'application/json'});
+                // 通过 FileReader 读取这个 blob
+                const reader = new FileReader();
+                reader.readAsText(tempBlob);
+                reader.onload = e => {
+                    const res = e.target.result;
+                    const data = JSON.parse(res);
+                    alert(data["message"]);
+                };
+            }
+        }
+
+
+        statusCode: {
+                200:function (res) {
+                    // res 为二进制流
+                    console.log("成功")
+                    let blob = new Blob([res])
+                    let da = document.createElement('a')
+                    da.href = URL.createObjectURL(blob);
+                    da.setAttribute("download", "data.xls");
+                    da.click();
+                    URL.revokeObjectURL(da.href);
+                }
+            }
+
+            $.ajax({
+            type: "POST",
+            url: '/ba/baRecord/exportExcelTwo',
+            data: paramData,
+            // dataType: 'binary',
+            xhrFields: { responseType: "blob" },
+        }).done(function (data, statusText, xhr){
+            if (xhr.status === 200){
+                console.log("ok")
+                let blob = new Blob([data])
+                let da = document.createElement('a')
+                da.href = URL.createObjectURL(blob);
+                da.setAttribute("download", "data.xls");
+                da.click();
+                URL.revokeObjectURL(da.href);
+            }
+        });
+
+</script>
+
+</html>
